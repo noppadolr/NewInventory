@@ -44,7 +44,7 @@
                 <div class="collapse" id="customer">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="" class="nav-link">Customer All</a>
+                            <a href="{{route('admin.dashboard')}}" class="nav-link">Customer All</a>
                         </li>
                     </ul>
                 </div>

@@ -36,6 +36,9 @@
 
     <link rel="shortcut icon" href="{{asset('admin/assets/images/favicon.png')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('toastr/toastr.css')}}" >
+    <!-- Plugin css for data table -->
+    <link rel="stylesheet" href="{{ asset('admin/assets/vendors/datatables.net-bs5/dataTables.bootstrap5.css') }}">
+    <!-- End plugin css for data table -->
 </head>
 <body>
 <div class="main-wrapper">
@@ -121,7 +124,12 @@
     }
     @endif
 </script>
+<!-- Plugin js for data table -->
 
+<script src="{{asset('admin/assets/vendors/datatables.net/jquery.dataTables.js')}}"></script>
+<script src="{{asset('admin/assets/vendors/datatables.net-bs5/dataTables.bootstrap5.js')}}"></script>
+<script src="{{asset('admin/assets/js/data-table.js')}}"></script>
+<!-- End plugin js for this page -->
 </body>
 </html>
 
