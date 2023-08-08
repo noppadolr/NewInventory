@@ -1,6 +1,6 @@
 @extends('admin.main')
 @section('main')
-
+    <script src="{{asset('jquery.min.js')}}"></script>
     <div class="page-content">
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
@@ -22,13 +22,13 @@
 
                             <h6 class="card-title">Add Supplier</h6>
                             <br>
-                            <form class="forms-sample" method="POST" action="" enctype="multipart/form-data" >
+                            <form id="myForm" class="forms-sample" method="POST" action="" >
                                 @csrf
 
 
                                 <div class="row mb-3">
                                     <label for="name" class="col-sm-3 col-form-label">Supplier Name</label>
-                                    <div class="col-sm-9">
+                                    <div class="col-sm-9 form-group">
                                         <input type="text"
                                                class="form-control "
                                                id="name"
@@ -39,7 +39,7 @@
 
                                 <div class="row mb-3">
                                     <label for="mobile_no" class="col-sm-3 col-form-label">Supplier Mobile</label>
-                                    <div class="col-sm-9">
+                                    <div class="col-sm-9 form-group">
                                         <input  type="text"
                                                 class="form-control "
                                                 id="mobile_no"
@@ -49,7 +49,7 @@
 
                                 <div class="row mb-3">
                                     <label for="email" class="col-sm-3 col-form-label">Email Adderss</label>
-                                    <div class="col-sm-9">
+                                    <div class="col-sm-9 form-group">
                                         <input  type="email"
                                                 class="form-control "
                                                 id="email"
@@ -59,7 +59,7 @@
 
                                 <div class="row mb-3">
                                     <label for="address" class="col-sm-3 col-form-label">Supplier Adderss</label>
-                                    <div class="col-sm-9">
+                                    <div class="col-sm-9 form-group">
                                         <input  type="text"
                                                 class="form-control "
                                                 id="address"
@@ -83,7 +83,55 @@
         </div>
 
     </div>
+    <script type="text/javascript">
+        $(document).ready(function (){
+            $('#myForm').validate({
+                rules: {
+                    name: {
+                        required : true,
+                    },
+                    mobile_no: {
+                        required : true,
+                    },
+                    email: {
+                        required : true,
+                    },
+                    address: {
+                        required : true,
+                    },
 
+                },
+                messages :{
+                    name: {
+                        required : 'Please Enter Supplier Name',
+                    },
+                    mobile_no: {
+                        required : 'Please Enter Supplier Mobile Number',
+                    },
+                    email: {
+                        required : 'Please Enter Supplier Email Address',
+                    },
+                    address: {
+                        required : 'Please Enter Supplier Address',
+                    },
+
+
+                },
+                errorElement : 'span',
+                errorPlacement: function (error,element) {
+                    error.addClass('invalid-feedback');
+                    element.closest('.form-group').append(error);
+                },
+                highlight : function(element, errorClass, validClass){
+                    $(element).addClass('is-invalid');
+                },
+                unhighlight : function(element, errorClass, validClass){
+                    $(element).removeClass('is-invalid');
+                },
+            });
+        });
+
+    </script>
 
 
 @endsection
