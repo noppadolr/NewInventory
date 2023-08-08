@@ -31,6 +31,9 @@
                         <li class="nav-item">
                             <a href="{{route('supplier.all')}}" class="nav-link">All Supplier</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{route('supplier.add')}}" class="nav-link">Add Supplier</a>
+                        </li>
                     </ul>
                 </div>
             </li>
@@ -44,7 +47,7 @@
                 <div class="collapse" id="customer">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="{{route('admin.dashboard')}}" class="nav-link">Customer All</a>
+                            <a href="" class="nav-link">Customer All</a>
                         </li>
                     </ul>
                 </div>

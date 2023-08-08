@@ -130,6 +130,7 @@
 <script src="{{asset('admin/assets/vendors/datatables.net-bs5/dataTables.bootstrap5.js')}}"></script>
 <script src="{{asset('admin/assets/js/data-table.js')}}"></script>
 <!-- End plugin js for this page -->
+<script src="{{asset('admin/assets/js/validate.min.js')}}"></script>
 </body>
 </html>
 

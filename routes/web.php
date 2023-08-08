@@ -49,6 +49,7 @@ Route::middleware(['auth','role:admin'])->group(function () {
 
     Route::controller(SupplierController::class)->group(function (){
         Route::get('/supplier/all','SupplierAll')->name('supplier.all');
+        Route::get('/supplier/add','SupplierAdd')->name('supplier.add');
     });
 
 

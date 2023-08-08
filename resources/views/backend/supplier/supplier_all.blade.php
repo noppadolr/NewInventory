@@ -15,7 +15,7 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <a href="" class="btn btn-rounded btn-outline-info" style="float: right">Add Supplier</a>
+                        <a href="{{route('supplier.add')}}" class="btn btn-rounded btn-outline-info" style="float: right">Add Supplier</a>
                         <h6 class="card-title">Supplier All Data</h6>
                         <br><br>
 
