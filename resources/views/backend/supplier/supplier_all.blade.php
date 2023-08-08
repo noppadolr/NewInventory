@@ -40,7 +40,14 @@
                                     <td>{{ $item->mobile_no }}</td>
                                     <td>{{ $item->email }}</td>
                                     <td>{{ $item->address }}</td>
-                                    <td></td>
+                                    <td>
+                                        <a href="" class="btn btn-inverse-warning">
+                                            <i class="me-1 icon-md" data-feather="edit"></i>
+                                            Edit</a>
+                                        <a href="" class="btn btn-inverse-danger">
+                                            <i class="me-1 icon-md" data-feather="trash-2"></i>
+                                            Delete</a>
+                                    </td>
                                 </tr>
                                 @endforeach
 

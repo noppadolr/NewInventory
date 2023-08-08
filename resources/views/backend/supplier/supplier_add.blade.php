@@ -22,7 +22,7 @@
 
                             <h6 class="card-title">Add Supplier</h6>
                             <br>
-                            <form id="myForm" class="forms-sample" method="POST" action="" >
+                            <form id="myForm" class="forms-sample" method="POST" action="{{ route('supplier.store') }}" >
                                 @csrf
 
 
