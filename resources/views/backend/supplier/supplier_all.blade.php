@@ -44,13 +44,13 @@
                                     <td>{{ $item->email }}</td>
                                     <td>{{ $item->address }}</td>
                                     <td>
-                                        <a href="{{ route('supplier.edit',$item->id) }}" class="btn btn-inverse-warning">
+                                        <a href="{{ route('supplier.edit',$item->id) }}" class="btn btn-inverse-warning" title="Edit Data">
                                             <i class="me-1 icon-md" data-feather="edit"></i>
-                                            Edit
+
                                         </a>
-                                        <a href="" class="btn btn-inverse-danger">
+                                        <a href="{{ route('supplier.delete',$item->id) }}" class="btn btn-inverse-danger" title="Delete Data" id="delete">
                                             <i class="me-1 icon-md" data-feather="trash-2"></i>
-                                            Delete
+
                                         </a>
                                     </td>
                                 </tr>

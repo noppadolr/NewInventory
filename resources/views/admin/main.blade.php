@@ -131,7 +131,11 @@
 <script src="{{asset('admin/assets/js/data-table.js')}}"></script>
 <!-- End plugin js for this page -->
 <script src="{{asset('admin/assets/js/validate.min.js')}}"></script>
+<script src="{{ asset('sweetalert/sweetalert2@10.js') }}"></script>
+
+{{--<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>--}}
+<script src="{{ asset('admin/assets/js/code/code.js') }}"></script>
 </body>
 </html>
 
-{{asset('admin')}}
+
