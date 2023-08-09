@@ -38,7 +38,7 @@
                                 </div>
 
                                 <div class="row mb-3">
-                                    <label for="mobile_no" class="col-sm-3 col-form-label">Supplier Mobile</label>
+                                    <label for="mobile_no" class="col-sm-3 col-form-label">Supplier Phone</label>
                                     <div class="col-sm-9 form-group">
                                         <input  type="text"
                                                 class="form-control "
@@ -48,7 +48,7 @@
                                 </div>
 
                                 <div class="row mb-3">
-                                    <label for="email" class="col-sm-3 col-form-label">Email Adderss</label>
+                                    <label for="email" class="col-sm-3 col-form-label">Email Address</label>
                                     <div class="col-sm-9 form-group">
                                         <input  type="email"
                                                 class="form-control "
@@ -58,7 +58,7 @@
                                 </div>
 
                                 <div class="row mb-3">
-                                    <label for="address" class="col-sm-3 col-form-label">Supplier Adderss</label>
+                                    <label for="address" class="col-sm-3 col-form-label">Supplier Address</label>
                                     <div class="col-sm-9 form-group">
                                         <input  type="text"
                                                 class="form-control "

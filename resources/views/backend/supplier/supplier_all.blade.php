@@ -5,17 +5,20 @@
 
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                <li class="breadcrumb-item active" aria-current="page"> Manage Supplier</li>
-                <li class="breadcrumb-item active" aria-current="page"> Supplier All</li>
+{{--                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>--}}
+{{--                <li class="breadcrumb-item active" aria-current="page"> Manage Supplier</li>--}}
+{{--                <li class="breadcrumb-item active" aria-current="page"> Supplier All</li>--}}
+                <a href="{{route('supplier.add')}}" class="btn  btn-inverse-info" >Add Supplier</a>
             </ol>
-        </nav>
+                </nav>
+
 
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
+
                     <div class="card-body">
-                        <a href="{{route('supplier.add')}}" class="btn btn-rounded btn-outline-info" style="float: right">Add Supplier</a>
+{{--                        <a href="{{route('supplier.add')}}" class="btn btn-rounded btn-outline-info" style="float: right">Add Supplier</a>--}}
                         <h6 class="card-title">Supplier All Data</h6>
                         <br><br>
 
@@ -25,7 +28,7 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Name</th>
-                                    <th>Mobile Number</th>
+                                    <th>Phone</th>
                                     <th>Email Address</th>
                                     <th>Address</th>
                                     <th>Action</th>
@@ -41,12 +44,14 @@
                                     <td>{{ $item->email }}</td>
                                     <td>{{ $item->address }}</td>
                                     <td>
-                                        <a href="" class="btn btn-inverse-warning">
+                                        <a href="{{ route('supplier.edit',$item->id) }}" class="btn btn-inverse-warning">
                                             <i class="me-1 icon-md" data-feather="edit"></i>
-                                            Edit</a>
+                                            Edit
+                                        </a>
                                         <a href="" class="btn btn-inverse-danger">
                                             <i class="me-1 icon-md" data-feather="trash-2"></i>
-                                            Delete</a>
+                                            Delete
+                                        </a>
                                     </td>
                                 </tr>
                                 @endforeach

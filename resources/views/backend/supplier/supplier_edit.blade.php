@@ -10,10 +10,7 @@
                     <div class="card">
                         <div class="card-body">
 
-                            <h4 class="card-title">Add Supplier Page </h4><br><br>
-
-
-
+                            <h4 class="card-title">Edit Supplier Page </h4><br><br>
                             <form method="post" action="{{ route('supplier.update') }}" id="myForm" >
                                 @csrf
 
@@ -26,17 +23,13 @@
                                     </div>
                                 </div>
                                 <!-- end row -->
-
-
                                 <div class="row mb-3">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Supplier Mobile </label>
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Supplier Phone </label>
                                     <div class="form-group col-sm-10">
                                         <input name="mobile_no" value="{{ $supplier->mobile_no }}" class="form-control" type="text"    >
                                     </div>
                                 </div>
                                 <!-- end row -->
-
-
                                 <div class="row mb-3">
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Supplier Email </label>
                                     <div class="form-group col-sm-10">
@@ -44,8 +37,6 @@
                                     </div>
                                 </div>
                                 <!-- end row -->
-
-
                                 <div class="row mb-3">
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Supplier Address </label>
                                     <div class="form-group col-sm-10">
@@ -53,22 +44,14 @@
                                     </div>
                                 </div>
                                 <!-- end row -->
-
-
-
-
-
+                                <br>
                                 <input type="submit" class="btn btn-info waves-effect waves-light" value="Update Supplier">
                             </form>
-
-
 
                         </div>
                     </div>
                 </div> <!-- end col -->
             </div>
-
-
 
         </div>
     </div>
