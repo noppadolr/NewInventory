@@ -65,7 +65,7 @@ Route::middleware(['auth','role:admin'])->group(function () {
 
 Route::middleware(['auth','role:agent'])->group(function () {
         Route::controller(AgentController::class)->group(function (){
-            Route::get('/agent/dashboard','AgentDashboard')->name('agent.dashboard');
+            Route::get('agent/dashboard','AgentDashboard')->name('agent.dashboard');
         });
 });
 

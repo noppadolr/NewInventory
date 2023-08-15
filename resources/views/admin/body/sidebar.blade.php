@@ -38,9 +38,13 @@
                 <div class="{{ Request::is('supplier/*')?'collapse show ':'collapse' }} " id="supplier">
 {{--                    <div class="collapse " id="supplier">--}}
                     <ul class="nav sub-menu ">
-                        <li class="nav-item {{ (Request::is('supplier/*'))  ? 'active' : '' }}">
+                        <li class="nav-item {{ (Request::is('supplier/all'))  ? 'active' : '' }}">
 {{--                            <a href="{{route('supplier.all')}}" class="nav-link {{ (strpos(Route::currentRouteName(), 'supplier.all') == 0) ? 'active' : '' }} " >All Supplier</a>--}}
-                            <a href="{{url('supplier/all')}}" class="nav-link {{ (Request::is('supplier/all')) || (Request::is('supplier/edit/*')) ||  (Request::is('supplier/add'))  ? 'active' : '' }} " >All Supplier</a>
+                            <a href="{{url('supplier/all')}}" class="nav-link {{ (Request::is('supplier/all')) || (Request::is('supplier/edit/*'))   ? 'active' : '' }} " >All Supplier</a>
+                        </li>
+                        <li class="nav-item {{ (Request::is('supplier/add'))  ? 'active' : '' }}">
+                            {{--                            <a href="{{route('supplier.all')}}" class="nav-link {{ (strpos(Route::currentRouteName(), 'supplier.all') == 0) ? 'active' : '' }} " >All Supplier</a>--}}
+                            <a href="{{url('supplier/add')}}" class="nav-link {{ (Request::is('supplier/add'))  ||  (Request::is('supplier/add'))  ? 'active' : '' }} " >Add Supplier</a>
                         </li>
 
                     </ul>
