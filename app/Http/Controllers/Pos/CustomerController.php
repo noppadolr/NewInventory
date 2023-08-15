@@ -16,6 +16,9 @@ class CustomerController extends Controller
 //       dd($data);
       return view('backend.customer.customer_all',compact('customers'));
 
-  }
-  //end CustomerAll method
+  }   //end CustomerAll method
+    public function CustomerAdd(){
+      return view('backend.customer.customer_add');
+
+    } //end CustomerAdd method
 }

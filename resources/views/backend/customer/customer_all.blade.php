@@ -8,7 +8,7 @@
                 {{--                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>--}}
                 {{--                <li class="breadcrumb-item active" aria-current="page"> Manage Supplier</li>--}}
                 {{--                <li class="breadcrumb-item active" aria-current="page"> Supplier All</li>--}}
-                <a href="{{route('supplier.add')}}" class="btn  btn-inverse-info" >Add Customer</a>
+                <a href="{{route('customer.add')}}" class="btn  btn-inverse-info" >Add Customer</a>
             </ol>
         </nav>
 
