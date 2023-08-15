@@ -10,63 +10,88 @@
         </div>
     </div>
     <div class="sidebar-body">
-        <ul class="nav">
-            <li class="nav-item nav-category">Main</li>
-            <li class="nav-item">
-                <a href="{{route('admin.dashboard')}}" class="nav-link">
+        <ul class="nav ">
+            <li class="nav-item  nav-category">Main</li>
+            <li class="nav-item  {{ Request::is('admin/dashboard')? 'active':''}}">
+                <a href="{{url('admin/dashboard')}}" class="nav-link {{ Request::is('admin/dashboard')? 'active':''}}">
                     <i class="link-icon" data-feather="box"></i>
+
+
                     <span class="link-title">Dashboard</span>
                 </a>
             </li>
+
+{{--            ========================================--}}
             <li class="nav-item nav-category">web apps</li>
 
-            <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#emails" role="button" aria-expanded="false" aria-controls="emails">
-                    <i class="link-icon" data-feather="archive"></i>
+
+{{--            -------------- Supplier -----------------------}}
+            <li class="nav-item {{ (Request::is('supplier/*')) ? 'active' : '' }}  " >
+{{--            <li class="nav-item " id="sidebar1" >--}}
+                <a class="nav-link {{ (Request::is('supplier/*')) ? 'active' : '' }}"  data-bs-toggle="collapse" href="#supplier" role="button"
+{{--                <a class="nav-link " id="sidebar1" data-bs-toggle="collapse" href="#/supplier/all" role="button"--}}
+                   aria-expanded="{{ (Request::is('supplier/*')) ? 'true' : 'false' }}" aria-controls="emails">
+                    <i class="link-icon" data-feather="shopping-cart"></i>
                     <span class="link-title">Manage Supplier</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
-                <div class="collapse" id="emails">
-                    <ul class="nav sub-menu">
-                        <li class="nav-item">
-                            <a href="{{route('supplier.all')}}" class="nav-link">All Supplier</a>
+                <div class="{{ Request::is('supplier/*')?'collapse show ':'collapse' }} " id="supplier">
+{{--                    <div class="collapse " id="supplier">--}}
+                    <ul class="nav sub-menu ">
+                        <li class="nav-item {{ (Request::is('supplier/*'))  ? 'active' : '' }}">
+{{--                            <a href="{{route('supplier.all')}}" class="nav-link {{ (strpos(Route::currentRouteName(), 'supplier.all') == 0) ? 'active' : '' }} " >All Supplier</a>--}}
+                            <a href="{{url('supplier/all')}}" class="nav-link {{ (Request::is('supplier/all')) || (Request::is('supplier/edit/*')) ||  (Request::is('supplier/add'))  ? 'active' : '' }} " >All Supplier</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{route('supplier.add')}}" class="nav-link">Add Supplier</a>
-                        </li>
+
                     </ul>
                 </div>
             </li>
+            {{--            -------------- End Supplier -----------------------}}
 
-            <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#customer" role="button" aria-expanded="false" aria-controls="emails">
+            {{--            -------------- Supplier -----------------------}}
+            <li class="nav-item {{ (Request::is('customer/*')) ? 'active' : '' }}  " >
+                {{--            <li class="nav-item " id="sidebar1" >--}}
+                <a class="nav-link {{ (Request::is('customer/*')) ? 'active' : '' }}"  data-bs-toggle="collapse" href="#customer" role="button"
+                   {{--                <a class="nav-link " id="sidebar1" data-bs-toggle="collapse" href="#/supplier/all" role="button"--}}
+                   aria-expanded="{{ (Request::is('customer/*')) ? 'true' : 'false' }}" aria-controls="emails">
                     <i class="link-icon" data-feather="user"></i>
                     <span class="link-title">Manage Customer</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
-                <div class="collapse" id="customer">
-                    <ul class="nav sub-menu">
-                        <li class="nav-item">
-                            <a href="" class="nav-link">Customer All</a>
+                <div class="{{ Request::is('customer/*')?'collapse show ':'collapse' }} " id="customer">
+                    {{--                    <div class="collapse " id="supplier">--}}
+                    <ul class="nav sub-menu ">
+                        <li class="nav-item {{ (Request::is('customer/*'))  ? 'active' : '' }}">
+                            {{--                            <a href="{{route('supplier.all')}}" class="nav-link {{ (strpos(Route::currentRouteName(), 'supplier.all') == 0) ? 'active' : '' }} " >All Supplier</a>--}}
+                            <a href="{{url('customer/all')}}" class="nav-link {{ (Request::is('customer/all')) || (Request::is('customer/edit/*')) || (Request::is('customer/add')) ? 'active' : '' }} " >All Customer</a>
                         </li>
-                    </ul>
-                </div>
-            </li>
 
-            <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#supplier" role="button" aria-expanded="false" aria-controls="emails">
-                    <i class="link-icon" data-feather="user"></i>
-                    <span class="link-title">Supplier</span>
-                    <i class="link-arrow" data-feather="chevron-down"></i>
-                </a>
-                <div class="collapse" id="supplier">
-                    <ul class="nav sub-menu">
-                        <li class="nav-item">
-                            <a href="" class="nav-link">Inbox</a>
-                        </li>
                     </ul>
                 </div>
             </li>
+            {{--            -------------- End Supplier -----------------------}}
+
+
+
+
+{{--            <li class="nav-item {{ (Request::is('customer/*')) ? 'active' : '' }} " >--}}
+{{--            <li class="nav-item {{ (Request::is('customer/*')) ? 'active' : '' }}"  >--}}
+{{--                <a class="nav-link {{ (Request::is('customer/all')) ? 'active' : '' }}"   data-bs-toggle="collapse" href="#customer" role="button"--}}
+{{--                   aria-expanded="false" aria-controls="emails">--}}
+{{--                    <i class="link-icon" data-feather="user"></i>--}}
+{{--                    <span class="link-title">Manage Customer</span>--}}
+{{--                    <i class="link-arrow" data-feather="chevron-down"></i>--}}
+{{--                </a>--}}
+{{--                <div class="collapse " id="customer">--}}
+{{--                    <ul class="nav sub-menu ">--}}
+{{--                        <li class="nav-item {{ (Request::is('/customer/all')) ? 'active' : '' }} ">--}}
+{{--                            <a href="{{ url('/customer/all') }}" class="nav-link {{ (Request::is('/customer/all')) ? 'active' : '' }}" >All Customer</a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--            </li>--}}
+
+
 
 
 

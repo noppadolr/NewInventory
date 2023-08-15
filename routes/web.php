@@ -46,14 +46,20 @@ Route::middleware(['auth','role:admin'])->group(function () {
 
 
 });
-
+//Supplier All Route
     Route::controller(SupplierController::class)->group(function (){
-        Route::get('/supplier/all','SupplierAll')->name('supplier.all');
-        Route::get('/supplier/add','SupplierAdd')->name('supplier.add');
-        Route::post('/supplier/store','SupplierStore')->name('supplier.store');
-        Route::get('/supplier/edit/{id}', 'SupplierEdit')->name('supplier.edit');
-        Route::post('/supplier/update', 'SupplierUpdate')->name('supplier.update');
-        Route::get('/supplier/delete/{id}', 'SupplierDelete')->name('supplier.delete');
+        Route::get('supplier/all','SupplierAll')->name('supplier.all');
+        Route::get('supplier/add','SupplierAdd')->name('supplier.add');
+        Route::post('supplier/store','SupplierStore')->name('supplier.store');
+        Route::get('supplier/edit/{id}', 'SupplierEdit')->name('supplier.edit');
+        Route::post('supplier/update', 'SupplierUpdate')->name('supplier.update');
+        Route::get('supplier/delete/{id}', 'SupplierDelete')->name('supplier.delete');
+    });
+
+
+    //Customer All Route
+    Route::controller(CustomerController::class)->group(function(){
+        Route::get('customer/all','CustomerAll')->name('customer.all');
     });
 
 

@@ -12,9 +12,12 @@
     <title>Admin Panel</title>
 
     <!-- Fonts -->
+{{--    <link rel="preconnect" href="https://fonts.googleapis.com">--}}
+{{--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>--}}
+{{--    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">--}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!-- End fonts -->
 
     <!-- core:css -->
@@ -39,6 +42,7 @@
     <!-- Plugin css for data table -->
     <link rel="stylesheet" href="{{ asset('admin/assets/vendors/datatables.net-bs5/dataTables.bootstrap5.css') }}">
     <!-- End plugin css for data table -->
+
 </head>
 <body>
 <div class="main-wrapper">
@@ -135,6 +139,16 @@
 
 {{--<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>--}}
 <script src="{{ asset('admin/assets/js/code/code.js') }}"></script>
+{{--<script type="text/javascript">--}}
+{{--    $('.siderbar1 .nav-item .sub-menu a').on('click', function(e) {--}}
+{{--        e.preventDefault();--}}
+{{--        $('.siderbar1 ').removeClass('active');--}}
+{{--        $(this).addClass('active');--}}
+{{--        $(this).addClass('show');--}}
+{{--    })--}}
+{{--</script>--}}
+
+
 </body>
 </html>
 

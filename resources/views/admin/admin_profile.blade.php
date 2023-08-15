@@ -150,7 +150,7 @@
                                 </div>
 
                                 <div class="row mb-3">
-                                    <label class="col-sm-2 col-form-label" for="image">File upload</label>
+                                    <label class="col-sm-2 col-form-label" for="image">Photo</label>
                                     <div class="col-sm-10">
                                     <input class="form-control" type="file" name="photo" id="image">
                                     </div>
