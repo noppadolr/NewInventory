@@ -12,17 +12,18 @@
     <title>Admin Panel</title>
 
     <!-- Fonts -->
-{{--    <link rel="preconnect" href="https://fonts.googleapis.com">--}}
-{{--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>--}}
-{{--    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">--}}
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- End fonts -->
     <!-- End fonts -->
 
     <!-- core:css -->
     <link rel="stylesheet" href="{{asset('admin/assets/vendors/core/core.css')}}">
     <!-- endinject -->
+    <link rel="stylesheet" href="{{asset('admin/assets/vendors/sweetalert2/sweetalert2.min.css')}}">
+
 
     <!-- Plugin css for this page -->
     <link rel="stylesheet" href="{{asset('admin/assets/vendors/flatpickr/flatpickr.min.css')}}">
@@ -39,9 +40,11 @@
 
     <link rel="shortcut icon" href="{{asset('admin/assets/images/favicon.png')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('toastr/toastr.css')}}" >
+    <script type="text/javascript" src="{{ asset('toastr/toastr.min.js') }}"></script>
     <!-- Plugin css for data table -->
     <link rel="stylesheet" href="{{ asset('admin/assets/vendors/datatables.net-bs5/dataTables.bootstrap5.css') }}">
     <!-- End plugin css for data table -->
+
 
 </head>
 <body>
@@ -69,7 +72,7 @@
 
     </div>
 </div>
-
+<script src="{{asset('jquery.min.js')}}"></script>
 <!-- core:js -->
 <script src="{{asset('admin/assets/vendors/core/core.js')}}"></script>
 <!-- endinject -->
@@ -87,7 +90,8 @@
 <!-- Custom js for this page -->
 <script src="{{asset('admin/assets/js/dashboard-dark.js')}}"></script>
 <!-- End custom js for this page -->
-<script type="text/javascript" src="{{ asset('toastr/toastr.min.js') }}"></script>
+
+
 
 <script>
     @if(Session::has('message'))
@@ -135,7 +139,10 @@
 <script src="{{asset('admin/assets/js/data-table.js')}}"></script>
 <!-- End plugin js for this page -->
 <script src="{{asset('admin/assets/js/validate.min.js')}}"></script>
-<script src="{{ asset('sweetalert/sweetalert2@10.js') }}"></script>
+{{--<script src="{{ asset('sweetalert/sweetalert2@10.js') }}"></script>--}}
+<script src="{{asset('admin/assets/vendors/sweetalert2/sweetalert2.min.js')}}"></script>
+<script src="{{asset('admin/assets/js/sweet-alert.js')}}"></script>
+
 
 {{--<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>--}}
 <script src="{{ asset('admin/assets/js/code/code.js') }}"></script>
@@ -147,8 +154,56 @@
 {{--        $(this).addClass('show');--}}
 {{--    })--}}
 {{--</script>--}}
+{{--<script src="{{asset('admin/assets/js/sweet-alert.js')}}"></script>--}}
+<script type="text/javascript">
+    @if(Session::has('swimage'))
+        window.onload = function () {
+        Swal.fire({
+            position: 'top-end',
+            toast: true,
+            icon: 'success',
+            title: 'Customer Update with Image Successfully',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+        })
+    }
+    @endif
 
+    @if(Session::has('SwNoImage'))
+    $(document).ready( function () {
+        showSwal('update-without-image');
+    });
+    // window.onload = function () {
+    // window.onload =function(){
+    //     // showSwal('message-with-auto-close');
+    //     Swal.fire({
+    //             position: 'top-end',
+    //             toast: true,
+    //             icon: 'success',
+    //             title: 'Customer Update without Image Successfully',
+    //             showConfirmButton: false,
+    //             timer: 3000,
+    //             timerProgressBar: true,
+    //         })
+    // }
+    @endif
+        @if(Session::has('Inserted'))
+        window.onload = function () {
+        Swal.fire({
+            position: 'top-end',
+            toast: true,
+            icon: 'success',
+            title: 'บันทึกข้อมุลลูกค้าเรียบร้อย',
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+        })
 
+    }
+    @endif
+
+</script>
 </body>
 </html>
 

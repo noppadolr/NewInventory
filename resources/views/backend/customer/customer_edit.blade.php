@@ -22,10 +22,10 @@
 
                             <h6 class="card-title">Edit Customer</h6>
                             <br>
-                            <form id="myForm" class="forms-sample" method="POST" action="{{route('customer.store')}}"  enctype="multipart/form-data">
-{{--                            <form id="myForm" class="forms-sample" method="POST" action=""  enctype="multipart/form-data">--}}
+                            {{--                            <form id="myForm" class="forms-sample" method="POST" action="{{route('customer.store')}}"  enctype="multipart/form-data">--}}
+                            <form id="myForm" class="forms-sample" method="POST" action="{{route('customer.update')}}"  enctype="multipart/form-data">
                                 @csrf
-
+                                <input type="hidden" name="id" value="{{ $customers->id }}">
 
                                 <div class="row mb-3">
                                     <label for="name" class="col-sm-1 col-form-label">Name</label>
@@ -33,7 +33,8 @@
                                         <input type="text"
                                                class="form-control "
                                                id="name"
-                                               name="name" >
+                                               name="name"
+                                               value="{{$customers->name}}">
                                     </div>
 
                                 </div>
@@ -44,7 +45,8 @@
                                         <input  type="text"
                                                 class="form-control "
                                                 id="mobile_no"
-                                                name="mobile_no" >
+                                                name="mobile_no"
+                                                value="{{$customers->mobile_no}}">
                                     </div>
                                 </div>
 
@@ -54,7 +56,7 @@
                                         <input  type="email"
                                                 class="form-control "
                                                 id="email"
-                                                name="email" >
+                                                name="email" value="{{$customers->email}}">
                                     </div>
                                 </div>
 
@@ -64,7 +66,7 @@
                                         <input  type="text"
                                                 class="form-control "
                                                 id="address"
-                                                name="address" >
+                                                name="address" value="{{$customers->address}}">
                                     </div>
                                 </div>
 
@@ -79,12 +81,12 @@
                                 <div class="row mb-3">
                                     <label class="col-sm-1 col-form-label" for="image"></label>
                                     <div class="col-sm-11">
-                                        <img id="showImage" class="avatar-lg wd-150 rounded" src="{{ url('upload/no_image.jpg') }}"  alt="profile">
+                                        <img id="showImage" style="width: 150px;height: 200px;" class="rounded"  src="{{ (!empty($customers->customer_image))? url($customers->customer_image):url('upload/no_image.jpg') }}"  alt="profile">
                                     </div>
                                 </div>
                                 <br>
                                 <br>
-                                <button type="submit" class="btn btn-outline-warning   me-2">Add Customer</button>
+                                <button type="submit" class="btn btn-outline-warning   me-2">Update Customer Data</button>
 
                             </form>
 
@@ -117,7 +119,7 @@
                         required : true,
                     },
                     customer_image: {
-                        required : true,
+                        required : false,
                     },
 
                 },

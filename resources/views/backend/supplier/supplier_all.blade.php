@@ -35,7 +35,7 @@
 
                                 </tr>
                                 </thead>
-                                <tbody>
+                                <tbody style="font-size: 14px">
                                 @foreach($suppliers as $key => $item)
                                 <tr>
                                     <td>{{ $key+1 }}</td>

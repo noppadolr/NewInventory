@@ -58,8 +58,9 @@ $(function() {
           cancelButton: 'btn btn-danger me-2'
         },
         buttonsStyling: false,
+
       })
-      
+
       swalWithBootstrapButtons.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
@@ -87,7 +88,8 @@ $(function() {
           )
         }
       })
-    } else if (type === 'message-with-auto-close') {
+    }else if (type === 'message-with-auto-close') {
+
       let timerInterval
       Swal.fire({
         title: 'Auto close alert!',
@@ -115,12 +117,13 @@ $(function() {
           console.log('I was closed by the timer')
         }
       })
-    } else if (type === 'message-with-custom-image') {
+    }
+    else if (type === 'message-with-custom-image') {
       Swal.fire({
         title: 'Sweet!',
         text: 'Modal with a custom image.',
         // imageUrl: 'https://unsplash.it/400/200',
-        imageUrl: '../../../assets/images/others/placeholder.jpg',
+        imageUrl: '../../../admin/assets/images/others/placeholder.jpg',
         imageWidth: 400,
         imageHeight: 200,
         imageAlt: 'Custom image',
@@ -133,12 +136,68 @@ $(function() {
         timer: 3000,
         timerProgressBar: true,
       });
-      
+
       Toast.fire({
         icon: 'success',
         title: 'Signed in successfully'
       })
     }
+    else if (type === 'update-without-image') {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3500,
+            timerProgressBar: true,
+        });
+
+        Toast.fire({
+            icon: 'success',
+            title: 'Customer Update without Image SuccessFully!'
+        })
+    }
+  //   end update-without-image
+  //   else if (type === 'del-cus') {
+  //       const del = Swal.mixin({
+  //           customClass: {
+  //               confirmButton: 'btn btn-success',
+  //               cancelButton: 'btn btn-danger me-2'
+  //           },
+  //           buttonsStyling: false,
+  //       })
+  //
+  //       del.fire({
+  //           title: 'Are you sure?',
+  //           text: "You won't be able to revert this!",
+  //           icon: 'warning',
+  //           showCancelButton: true,
+  //           confirmButtonClass: 'me-2',
+  //           confirmButtonText: 'Yes, delete it!',
+  //           cancelButtonText: 'No, cancel!',
+  //           reverseButtons: true
+  //       }).then((result) => {
+  //           if (result.isConfirmed) {
+  //               del.fire(
+  //                   'Deleted!',
+  //                   'Your file has been deleted.',
+  //                   'success'
+  //               )
+  //           } else if (
+  //               // Read more about handling dismissals
+  //               result.dismiss === Swal.DismissReason.cancel
+  //           ) {
+  //               del.fire(
+  //                   'Cancelled',
+  //                   'Your imaginary file is safe :)',
+  //                   'error'
+  //               )
+  //           }
+  //       })
+  //   }
+
+
+
+
   }
 
 });

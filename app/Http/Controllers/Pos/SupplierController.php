@@ -34,7 +34,7 @@ public function SupplierStore(Request $request){
         'created_at'=>Carbon::now(),
     ]);
     $notification = array(
-        'message' => 'Supplier serted Successfully',
+        'message' => 'Supplier Inserted Successfully',
         'alert-type' => 'success'
     );
 
