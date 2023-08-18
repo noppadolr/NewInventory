@@ -76,6 +76,30 @@
             {{--            -------------- End Supplier -----------------------}}
 
 
+            {{--            -------------- Unit -----------------------}}
+            <li class="nav-item {{ (Request::is('unit/*')) ? 'active' : '' }}  " >
+                {{--            <li class="nav-item " id="sidebar1" >--}}
+                <a class="nav-link {{ (Request::is('unit/*')) ? 'active' : '' }}"  data-bs-toggle="collapse" href="#unit" role="button"
+                   {{--                <a class="nav-link " id="sidebar1" data-bs-toggle="collapse" href="#/supplier/all" role="button"--}}
+                   aria-expanded="{{ (Request::is('unit/*')) ? 'true' : 'false' }}" aria-controls="emails">
+                    <i class="link-icon" data-feather="codepen"></i>
+                    <span class="link-title">Manage Unit</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="{{ Request::is('unit/*')?'collapse show ':'collapse' }} " id="unit">
+                    {{--                    <div class="collapse " id="supplier">--}}
+                    <ul class="nav sub-menu ">
+                        <li class="nav-item {{ (Request::is('unit/*'))  ? 'active' : '' }}">
+                            {{--                            <a href="{{route('supplier.all')}}" class="nav-link {{ (strpos(Route::currentRouteName(), 'supplier.all') == 0) ? 'active' : '' }} " >All Supplier</a>--}}
+                            <a href="{{url('unit/all')}}" class="nav-link {{ (Request::is('unit/all')) || (Request::is('unit/edit/*')) || (Request::is('unit/add')) ? 'active' : '' }} " >All Unit</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </li>
+            {{--            -------------- End Unit -----------------------}}
+
+
 
 
 {{--            <li class="nav-item {{ (Request::is('customer/*')) ? 'active' : '' }} " >--}}
