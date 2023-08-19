@@ -45,7 +45,8 @@
                                                 <i class="me-1 icon-md" data-feather="edit"></i>
 
                                             </a>
-                                            <a href="" class="btn btn-inverse-danger" title="Delete Data" id="delete">
+{{--                                            <a href="javascript:viod(0)" class="btn btn-inverse-danger" title="Delete Data" id="delete">--}}
+                                            <a href="javascript:viod(0)" class="btn btn-inverse-danger" title="Delete Data" onclick="">
                                                 <i class="me-1 icon-md" data-feather="trash-2"></i>
 
                                             </a>
