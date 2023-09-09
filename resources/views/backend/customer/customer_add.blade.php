@@ -6,7 +6,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                 <li class="breadcrumb-item active" aria-current="page"> Manage Customer</li>
-                <li class="breadcrumb-item active" aria-current="page"> Edit Customer</li>
+                <li class="breadcrumb-item active" aria-current="page"> Add Customer</li>
             </ol>
         </nav>
 
@@ -20,7 +20,7 @@
                     <div class="card">
                         <div class="card-body">
 
-                            <h6 class="card-title">Edit Customer</h6>
+                            <h6 class="card-title">Add Customer</h6>
                             <br>
                             <form id="myForm" class="forms-sample" method="POST" action="{{route('customer.store')}}"  enctype="multipart/form-data">
 {{--                            <form id="myForm" class="forms-sample" method="POST" action=""  enctype="multipart/form-data">--}}

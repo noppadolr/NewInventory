@@ -8,7 +8,7 @@
     <meta name="description" content="Responsive HTML Admin Dashboard Template based on Bootstrap 5">
     <meta name="author" content="NobleUI">
     <meta name="keywords" content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Admin Panel</title>
 
     <!-- Fonts -->
@@ -72,7 +72,7 @@
 
     </div>
 </div>
-<script src="{{asset('jquery.min.js')}}"></script>
+<script src="{{asset('jquery/jquery-3.7.0.min.js')}}"></script>
 <!-- core:js -->
 <script src="{{asset('admin/assets/vendors/core/core.js')}}"></script>
 <!-- endinject -->
@@ -146,15 +146,7 @@
 
 {{--<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>--}}
 <script src="{{ asset('admin/assets/js/code/code.js') }}"></script>
-{{--<script type="text/javascript">--}}
-{{--    $('.siderbar1 .nav-item .sub-menu a').on('click', function(e) {--}}
-{{--        e.preventDefault();--}}
-{{--        $('.siderbar1 ').removeClass('active');--}}
-{{--        $(this).addClass('active');--}}
-{{--        $(this).addClass('show');--}}
-{{--    })--}}
-{{--</script>--}}
-{{--<script src="{{asset('admin/assets/js/sweet-alert.js')}}"></script>--}}
+
 <script type="text/javascript">
     @if(Session::has('swimage'))
         window.onload = function () {
@@ -173,22 +165,11 @@
     @if(Session::has('SwNoImage'))
     $(document).ready( function () {
         showSwal('update-without-image');
-    });
-    // window.onload = function () {
-    // window.onload =function(){
-    //     // showSwal('message-with-auto-close');
-    //     Swal.fire({
-    //             position: 'top-end',
-    //             toast: true,
-    //             icon: 'success',
-    //             title: 'Customer Update without Image Successfully',
-    //             showConfirmButton: false,
-    //             timer: 3000,
-    //             timerProgressBar: true,
-    //         })
-    // }
+    })
+
     @endif
-        @if(Session::has('Inserted'))
+
+    @if(Session::has('Inserted'))
         window.onload = function () {
         Swal.fire({
             position: 'top-end',
@@ -200,6 +181,18 @@
             timerProgressBar: true,
         })
 
+    }
+    @endif
+
+    @if (Session::has('Deleted'))
+        window.onload = function () {
+        Swal.fire({
+            toast: false,
+            icon: 'success',
+            title: 'Your file has been deleted.',
+            showConfirmButton: true,
+            timerProgressBar: false,
+        })
     }
     @endif
 

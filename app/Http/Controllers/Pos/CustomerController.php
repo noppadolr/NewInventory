@@ -107,17 +107,27 @@ class CustomerController extends Controller
 
     }
 
-    public function CustomerDelete($id){
-        Customer::findOrFail($id)->delete();
+//    public function CustomerDelete($id){
+//        Customer::findOrFail($id)->delete();
+//
+//        $notification = array(
+//            'message' => 'Supplier Deleted Successfully',
+//            'alert-type' => 'success'
+//        );
+//
+//        return redirect()->route('customer.all')->with($notification)->with('Deleted','Deleted Complete!');
+//
+//    } //End method
 
-        $notification = array(
-            'message' => 'Supplier Deleted Successfully',
-            'alert-type' => 'success'
-        );
+    public function CustomerDelete($id)
+    {
+     Customer::query()->findOrFail($id)->delete();
 
-        return redirect()->back()->with($notification);
+       return response()->json(['success'=>'Record has been delete']);
 
-    } //End method
+
+    }
+
 
 
 

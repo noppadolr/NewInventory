@@ -38,7 +38,7 @@
                                 </thead>
                                 <tbody style="font-weight: 100;font-size: 14px">
                                 @foreach($customers as $key => $item)
-                                    <tr>
+                                    <tr id="sid{{$item->id}}">
                                         <td>{{ $key+1 }}</td>
                                         <td>{{ $item->name }}</td>
                                         <td><img src="{{asset($item->customer_image)}}" class="avatar-lg  rounded" style="width: 80px;height: auto;" alt=""></td>
@@ -49,8 +49,10 @@
                                                 <i class="me-1 icon-md" data-feather="edit"></i>
 
                                             </a>
-                                            <a href="{{ route('customer.delete',$item->id) }}" class="btn btn-inverse-danger"
-                                               id="delete"  title="Delete Data" >
+{{--                                            <a href="{{ route('customer.delete',$item->id) }}" class="btn btn-inverse-danger"--}}
+{{--                                               id="delete"  title="Delete Data" >--}}
+                                                <a href="javascript:void(0)" class="btn btn-inverse-danger"
+                                                    title="Delete Data"   onclick="deleteCustomer({{$item->id}})">
 
                                                 <i class="me-1 icon-md" data-feather="trash-2"></i>
 
@@ -73,53 +75,60 @@
         </div>
 
     </div>
+<script type="text/javascript">
+    function deleteCustomer(id)
+    {
+        // $(document).on('click','#delete',function(id){
+        // e.preventDefault();
+        // var link = $(this).attr("href");
 
-{{--    <script type="text/javascript">--}}
-{{--    @if(Session::has('swimage'))--}}
-{{--        window.onload = function () {--}}
-{{--            Swal.fire({--}}
-{{--                position: 'top-end',--}}
-{{--                toast: true,--}}
-{{--                icon: 'success',--}}
-{{--                title: 'Customer Update with Image Successfully',--}}
-{{--                showConfirmButton: false,--}}
-{{--                timer: 3000,--}}
-{{--                timerProgressBar: true,--}}
-{{--            })--}}
-{{--        }--}}
-{{--    @endif--}}
 
-{{--    @if(Session::has('SwNoImage'))--}}
-{{--            // window.onload = function () {--}}
-{{--    window.onload =function(){--}}
-{{--        showSwal('message-with-auto-close');--}}
-{{--        // Swal.fire({--}}
-{{--        //         position: 'top-end',--}}
-{{--        //         toast: true,--}}
-{{--        //         icon: 'success',--}}
-{{--        //         title: 'Customer Update without Image Successfully',--}}
-{{--        //         showConfirmButton: false,--}}
-{{--        //         timer: 3000,--}}
-{{--        //         timerProgressBar: true,--}}
-{{--        //     })--}}
-{{--        }--}}
-{{--    @endif--}}
-{{--        @if(Session::has('Inserted'))--}}
-{{--        window.onload = function () {--}}
-{{--        Swal.fire({--}}
-{{--            position: 'top-end',--}}
-{{--            toast: true,--}}
-{{--            icon: 'success',--}}
-{{--            title: 'บันทึกข้อมุลลูกค้าเรียบร้อย',--}}
-{{--            showConfirmButton: false,--}}
-{{--            timer: 3000,--}}
-{{--            timerProgressBar: true,--}}
-{{--        })--}}
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "Delete This Data?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url:'delete/'+id,
+                    type:'DELETE',
+                    {{--data: {_token: $("input[name=_token]").val(),{{csrf_token()}} },--}}
+                    {{--data: { somefield: "Some field value", _token: '{{csrf_token()}}' },--}}
+                    data: {
+                        _token: '{!! csrf_token() !!}',
+                    },
+                    success:function (response)
+                    {
+                        $("#sid" + id).remove();
+                    },
 
-{{--    }--}}
-{{--        @endif--}}
+                    });
 
-{{--    </script>--}}
+                Swal.fire(
+                    {
+                        title:  'Deleted!',
+                        text: 'Your file has been deleted.',
+                        icon: 'success',
+                        showCancelButton: false,
+                        confirmButtonColor: '#3085d6',
+                        confirmButtonText: 'OK'
+
+                    }).then((result)=>{
+                        location.reload()
+                    }
+                )
+            }
+        })
+
+    }
+
+</script>
+
+
+
 
 @endsection
-

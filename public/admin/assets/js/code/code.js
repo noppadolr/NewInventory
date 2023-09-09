@@ -1,9 +1,7 @@
 $(function(){
     $(document).on('click','#delete',function(e){
         e.preventDefault();
-        var link = $(this).attr("href");
-
-
+        let link = $(this).attr("href");
         Swal.fire({
             title: 'Are you sure?',
             text: "Delete This Data?",
@@ -14,17 +12,7 @@ $(function(){
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                // window.location.href = link
-                Swal.fire({
-                    title:'Deleted!',
-                    text:'Your file has been deleted.',
-                    icon:'success',
-                    showCancelButton: false,
-                    confirmButtonColor: '#3085d6',
-                }).then((result)=>{
-                    window.location.href = link
-                })
-
+                window.location.href = link
             }
         })
 
@@ -32,4 +20,4 @@ $(function(){
     });
 
 });
-//ชุดนี้ใส่คำสั่งให้รอกด OK ก่อนปิดแสดงว่าลบแล้วเรียบร้อยแล้ว
+
